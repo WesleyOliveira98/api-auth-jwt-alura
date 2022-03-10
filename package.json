@@ -7,11 +7,13 @@
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "ISC",
+  "author": "Wesley Oliveira",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.2",
-    "sqlite3": "^4.1.1"
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "sqlite3": "^5.0.2"
   }
 }
