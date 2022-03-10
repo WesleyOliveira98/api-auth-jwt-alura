@@ -1,1 +1,2 @@
-# auth-jwt-alura
+# Blog do código
+> Um blog simples em Node.js
