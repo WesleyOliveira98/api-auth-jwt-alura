@@ -11,5 +11,8 @@ module.exports = app => {
     .post(usuariosControlador.adiciona)
     .get(usuariosControlador.lista);
 
-  app.route('/usuario/:id').delete(usuariosControlador.deleta);
+  app.route('/usuario/:id').delete(
+    passport.authenticate('bearer', { session: false }),
+    usuariosControlador.deleta
+  );
 };
