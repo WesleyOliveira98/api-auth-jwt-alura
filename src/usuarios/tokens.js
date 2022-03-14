@@ -22,6 +22,10 @@ async function verificaTokenNaBlocklist(token, nome, blocklist) {
     if (tokenNaBlocklist) throw new jwt.JsonWebTokenError(`${nome} inválido por logout!`);
 }
 
+async function invalidaTokenJWT(token, blocklist) {
+    await blocklist.adiciona(token);
+}
+
 async function criaTokenOpaco(id, [tempoQtd, tempoUnd], allowlist) {
     const tokenOpaco = crypto.randomBytes(24).toString('hex');
     const dataExpiracao = moment().add(tempoQtd, tempoUnd).unix();
@@ -34,6 +38,10 @@ async function verificaTokenOpaco(token, nome, allowlist) {
     const id = await allowlist.buscavalor(token);
     verificaTokenValido(id, nome)
     return id;
+}
+
+async function invalidaTokenOpaco(token, allowlist) {
+    await allowlist.deleta(token);
 }
 
 function verificaTokenEnviado(token, nome) {
@@ -58,6 +66,9 @@ module.exports = {
         },
         verifica(token) {
             return verificaTokenJWT(token, this.nome, this.lista);
+        },
+        invalida(token) {
+            return invalidaTokenJWT(token, this.lista);
         }
     },
     refresh: {
@@ -69,6 +80,9 @@ module.exports = {
         },
         verifica(token) {
             return verificaTokenOpaco(token, this.nome, this.lista);
+        },
+        invalida(token) {
+            return invalidaTokenOpaco(token, this.lista);
         }
     }
 }
