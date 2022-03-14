@@ -15,7 +15,8 @@ module.exports = {
     try {
       const usuario = new Usuario({
         nome,
-        email
+        email,
+        emailVerificado: false
       });
 
       await usuario.adicionaSenha(senha);
