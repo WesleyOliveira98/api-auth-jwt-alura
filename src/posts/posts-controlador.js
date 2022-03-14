@@ -2,7 +2,7 @@ const Post = require('./posts-modelo');
 const { InvalidArgumentError, InternalServerError } = require('../erros');
 
 module.exports = {
-  adiciona: async (req, res) => {
+  async adiciona(req, res) {
     try {
       const post = new Post(req.body);
       await post.adiciona();
@@ -19,7 +19,7 @@ module.exports = {
     }
   },
 
-  lista: async (req, res) => {
+  async lista(req, res) {
     try {
       const posts = await Post.lista();
       res.send(posts);
