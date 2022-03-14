@@ -9,7 +9,7 @@ module.exports = lista => {
     return {
         async adiciona(chave, valor, dataExpiracao) {
             await setAsync(chave, valor);
-            lista.expireAt(chave, dataExpiracao)
+            await lista.expireat(chave, dataExpiracao)
         },
 
         async contemChave(chave) {

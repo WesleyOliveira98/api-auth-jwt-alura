@@ -12,7 +12,7 @@ module.exports = {
         const dataExpiracao = jwt.decode(token).exp;
         const tokenHash = geraTokenHash(token);
         await setAsync(tokenHash, '');
-        blocklist.expireAt(tokenHash, dataExpiracao)
+        await blocklist.expireat(tokenHash, dataExpiracao)
     },
     contemToken: async token => {
         const tokenHash = geraTokenHash(token);

@@ -12,7 +12,7 @@ function criaTokenJWT(usuario) {
   };
 
   const token = jwt.sign(payload, process.env.CHAVE_JWT, { expiresIn: '15m' });
-  return token
+  return token;
 }
 
 async function criaTokenOpaco(usuario) {
