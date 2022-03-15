@@ -1,5 +1,5 @@
 <h1 align="center">Autenticação com JWT</h1>
-<p>Projeto desenvolvido através dos cursos da Alura, onde foi desenvolvida a lógica envolvendo tokens JWT em uma API REST com Express.</p>
+<p>Projeto desenvolvido através dos cursos da Alura, onde foi desenvolvida a lógica envolvendo tokens JWT, tokens opacos, refresh tokens e verificação de e-mail em uma API REST com Express.</p>
 <h3>Tecnologias utilizadas:</h3>
 <ul>
     <li><a href="https://nodejs.org/en/">Node.js</a></li>
@@ -12,6 +12,8 @@
     <li>dotenv</li>
     <li>express</li>
     <li>jsonwebtoken</li>
+    <li>moment</li>
+    <li>nodemailer</li>
     <li>nodemon</li>
     <li>passport</li>
     <li>passport-http-bearer</li>
