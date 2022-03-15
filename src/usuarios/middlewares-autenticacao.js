@@ -65,5 +65,12 @@ module.exports = {
             if (error.name === 'InvalidArgumentError') res.status(401).json({ erro: error.message });
             else return res.status(500).json({ erro: error.message });
         }
-    }
-}
+    },
+
+    async verificacaoEmail(req, res, next) {
+        const { id } = req.params;
+        const usuario = await Usuario.buscaPorId(id);
+        req.user = usuario;
+        next();
+    },
+};

@@ -64,13 +64,23 @@ module.exports = {
     res.json(usuarios);
   },
 
+  async verificaEmail(req, res) {
+    try {
+      const usuario = req.user;
+      await usuario.verificaEmail();
+      res.status(200).json();
+    } catch (erro) {
+      res.status(500).json({ erro: erro.message });
+    }
+  },
+
   async deleta (req, res) {
     const usuario = await Usuario.buscaPorId(req.params.id);
     try {
       await usuario.deleta();
       res.status(200).send();
     } catch (erro) {
-      res.status(500).json({ erro: erro });
+      res.status(500).json({ erro: erro.message });
     }
   }
 };
